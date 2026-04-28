@@ -1184,6 +1184,366 @@ h2.page-title {
   .promo-meta-grid { grid-template-columns: 1fr; }
 }
 
+/* ===== Top Navigation (Sticky) ===== */
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  z-index: 100;
+  padding: 12px 0;
+}
+.top-nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.top-nav-brand {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text);
+  letter-spacing: -0.3px;
+}
+.top-nav-brand small {
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-left: 8px;
+}
+.top-nav-links {
+  display: flex;
+  gap: 4px;
+}
+.top-nav-link {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-soft);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  letter-spacing: -0.1px;
+}
+.top-nav-link:hover {
+  color: var(--text);
+  background: var(--bg-soft);
+}
+.top-nav-link.accent {
+  background: var(--accent);
+  color: var(--bg-page);
+}
+.top-nav-link.accent:hover {
+  background: #9a2a18;
+  color: var(--bg-page);
+}
+
+/* 본문이 nav 아래로 가도록 spacing */
+body { padding-top: 56px; }
+
+@media (max-width: 900px) {
+  .top-nav-inner { padding: 0 24px; }
+  .top-nav-brand small { display: none; }
+  .top-nav-link { font-size: 12px; padding: 5px 10px; }
+}
+
+/* ===== Checklist Divider ===== */
+.checklist-divider {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--accent);
+  color: var(--bg-page);
+  padding: 120px 80px;
+  position: relative;
+  border-bottom: 1px solid var(--line);
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.checklist-divider .page-num { color: rgba(255, 255, 255, 0.5); }
+.checklist-divider-inner { max-width: 720px; }
+.checklist-tag {
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: 6px;
+  color: var(--bg-page);
+  font-weight: 700;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  opacity: 0.85;
+}
+.checklist-title {
+  font-family: var(--serif);
+  font-size: clamp(56px, 8vw, 96px);
+  font-weight: 700;
+  letter-spacing: -3px;
+  line-height: 1;
+  color: var(--bg-page);
+  margin-bottom: 24px;
+}
+.checklist-divider-desc {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  margin-bottom: 48px;
+  font-weight: 300;
+}
+.checklist-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 24px;
+}
+.checklist-stat {
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  padding-right: 20px;
+}
+.checklist-stat:last-child { border-right: none; }
+.checklist-stat-num {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--bg-page);
+  line-height: 1;
+  margin-bottom: 6px;
+  letter-spacing: -1px;
+}
+.checklist-stat-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .checklist-divider { padding: 80px 24px; }
+  .checklist-stats { grid-template-columns: repeat(2, 1fr); gap: 16px 0; }
+}
+
+/* ===== Checklist Section ===== */
+.checklist-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--bg-page);
+  padding: 70px 80px 60px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.checklist-controls {
+  display: flex;
+  gap: 8px;
+  margin: 24px 0 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.checklist-filter-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-right: 8px;
+  font-weight: 600;
+}
+.checklist-btn {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 12px;
+  background: var(--bg-page);
+  border: 1px solid var(--line);
+  color: var(--text-soft);
+  cursor: pointer;
+  letter-spacing: -0.1px;
+  transition: all 0.2s ease;
+  border-radius: 3px;
+}
+.checklist-btn:hover {
+  border-color: var(--text);
+  color: var(--text);
+}
+.checklist-btn.active {
+  background: var(--text);
+  color: var(--bg-page);
+  border-color: var(--text);
+  font-weight: 600;
+}
+.checklist-btn.risk-block.active { background: var(--accent); border-color: var(--accent); }
+.checklist-btn.risk-high.active { background: #d4691f; border-color: #d4691f; }
+
+.checklist-meta {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  padding: 10px 14px;
+  background: var(--bg-soft);
+  border-left: 3px solid var(--text-soft);
+  letter-spacing: -0.1px;
+}
+.checklist-meta strong { color: var(--text); font-weight: 600; }
+
+/* Milestone group */
+.milestone-group {
+  margin: 32px 0;
+  border-top: 2px solid var(--text);
+}
+.milestone-group.dimmed { display: none; }
+.milestone-header {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+.milestone-key {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -1px;
+}
+.milestone-key.urgent { color: var(--accent); }
+.milestone-key.warning { color: #d4691f; }
+.milestone-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.milestone-phase {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.3px;
+}
+.milestone-date {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.milestone-count {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Checklist items */
+.checklist-items {
+  display: flex;
+  flex-direction: column;
+}
+.checklist-item {
+  display: grid;
+  grid-template-columns: 60px 1fr 180px 70px;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line-soft);
+  align-items: start;
+  transition: background 0.2s ease, opacity 0.3s ease;
+}
+.checklist-item:hover {
+  background: var(--bg-cell);
+}
+.checklist-item.dimmed {
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.checklist-item-id {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  padding-top: 2px;
+}
+.checklist-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.checklist-item-text {
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.55;
+  letter-spacing: -0.1px;
+}
+.checklist-item-cat {
+  font-family: var(--sans);
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.checklist-item-owner {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--text-soft);
+  line-height: 1.4;
+  padding-top: 2px;
+}
+.checklist-item-risk {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 2px;
+  text-align: center;
+  height: fit-content;
+  margin-top: 2px;
+}
+.checklist-item-risk.risk-block {
+  background: #fbe9e3;
+  color: var(--accent);
+}
+.checklist-item-risk.risk-high {
+  background: #fbf0e3;
+  color: #d4691f;
+}
+.checklist-item-risk.risk-mid {
+  background: #fffaeb;
+  color: #b8821f;
+}
+.checklist-item-risk.risk-low {
+  background: #eef5ea;
+  color: #5b8a4f;
+}
+
+@media (max-width: 900px) {
+  .checklist-section { padding: 50px 24px 40px; }
+  .checklist-item {
+    grid-template-columns: 1fr 70px;
+    gap: 8px;
+  }
+  .checklist-item-id { display: none; }
+  .checklist-item-owner {
+    grid-column: 1;
+    font-size: 11px;
+  }
+  .milestone-header { grid-template-columns: 80px 1fr; }
+  .milestone-count { display: none; }
+}
+
 /* ===== Appendix Divider ===== */
 .appendix-divider {
   max-width: 1100px;
@@ -1675,8 +2035,20 @@ h2.page-title {
 </head>
 <body>
 
+<!-- ====== Top Navigation ====== -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <div class="top-nav-brand">NAN 2026<small>NHN Game × AI Hackathon</small></div>
+    <div class="top-nav-links">
+      <a href="#cover-top" class="top-nav-link">본문</a>
+      <a href="#appendix-start" class="top-nav-link">Appendix</a>
+      <a href="#checklist-start" class="top-nav-link accent">체크리스트</a>
+    </div>
+  </div>
+</nav>
+
 <!-- ====== Cover ====== -->
-<section class="cover">
+<section class="cover" id="cover-top">
   <div class="cover-meta-top">
     <span>대외비 | NHN 게임본부 | 2026년 4월 작성</span>
     <span>Ver 0.93</span>
@@ -2800,6 +3172,74 @@ h2.page-title {
   <div class="page-num">23</div>
 </section>
 
+<!-- ====== Checklist Divider ====== -->
+<section class="checklist-divider" id="checklist-start">
+  <div class="checklist-divider-inner">
+    <div class="checklist-tag">OPERATIONS · 운영 도구</div>
+    <h2 class="checklist-title">Checklist</h2>
+    <p class="checklist-divider-desc">D-Day 카운트다운 기준 운영 리스크 점검 항목. 매주 운영 회의 시 마일스톤별 진행 상황 점검.</p>
+    <div class="checklist-stats">
+      <div class="checklist-stat">
+        <div class="checklist-stat-num">80</div>
+        <div class="checklist-stat-label">Total Items</div>
+      </div>
+      <div class="checklist-stat">
+        <div class="checklist-stat-num">8</div>
+        <div class="checklist-stat-label">Milestones</div>
+      </div>
+      <div class="checklist-stat">
+        <div class="checklist-stat-num">36</div>
+        <div class="checklist-stat-label">Critical · 차단</div>
+      </div>
+      <div class="checklist-stat">
+        <div class="checklist-stat-num">15</div>
+        <div class="checklist-stat-label">Categories</div>
+      </div>
+    </div>
+  </div>
+  <div class="page-num">24</div>
+</section>
+
+<!-- ====== Checklist Section ====== -->
+<section class="checklist-section" id="checklist-main">
+  <div class="chapter-tag">CL. 운영 리스크 체크리스트</div>
+  <h2 class="page-title">D-Day 카운트다운 기준 점검표</h2>
+  <p class="page-sub">D-90 기획 컨펌부터 D+30 후속 관리까지 — 마일스톤별 80개 점검 항목</p>
+  <div class="divider-arrow">▼</div>
+
+  <div class="checklist-meta">
+    <strong>활용 방법</strong> 마일스톤별 / 위험 등급별 필터로 빠르게 탐색. 각 항목별 책임 조직과 위험 등급이 표시됨. 별도 Excel 파일에서 진행 상태·담당자·비고 관리 가능.
+  </div>
+
+  <div class="checklist-controls">
+    <span class="checklist-filter-label">마일스톤</span>
+    <button class="checklist-btn active" data-filter-type="milestone" data-filter="all">전체</button>
+    <button class="checklist-btn" data-filter-type="milestone" data-filter="D-90">D-90</button>
+    <button class="checklist-btn" data-filter-type="milestone" data-filter="D-60">D-60</button>
+    <button class="checklist-btn" data-filter-type="milestone" data-filter="D-30">D-30</button>
+    <button class="checklist-btn" data-filter-type="milestone" data-filter="D-14">D-14</button>
+    <button class="checklist-btn" data-filter-type="milestone" data-filter="D-7">D-7</button>
+    <button class="checklist-btn" data-filter-type="milestone" data-filter="D-1">D-1</button>
+    <button class="checklist-btn" data-filter-type="milestone" data-filter="D-Day">D-Day</button>
+    <button class="checklist-btn" data-filter-type="milestone" data-filter="D+30">D+30</button>
+  </div>
+
+  <div class="checklist-controls">
+    <span class="checklist-filter-label">위험 등급</span>
+    <button class="checklist-btn active" data-filter-type="risk" data-filter="all">전체</button>
+    <button class="checklist-btn risk-block" data-filter-type="risk" data-filter="차단">차단만</button>
+    <button class="checklist-btn risk-high" data-filter-type="risk" data-filter="높음">높음 이상</button>
+  </div>
+
+  <div id="checklist-container">
+    <!-- JS로 동적 렌더링 -->
+  </div>
+
+  <p class="source">동일 내용을 Excel 파일(nan_2026_risk_checklist.xlsx)로도 제공 — 진행 상태·담당자·비고 컬럼 추가</p>
+
+  <div class="page-num">25</div>
+</section>
+
 <!-- ====== Footer ====== -->
 <footer class="doc-footer">
   <div class="doc-footer-mark">NAN 2026</div>
@@ -3014,6 +3454,139 @@ document.querySelectorAll('.gantt-btn').forEach(btn => {
     });
   });
 });
+
+const checklistData = [{"id":"L001","milestone":"D-90","phase":"기획 컨펌","category":"법무","item":"저작권 귀속 조항 법무팀 검토 의뢰","owner":"법무팀","risk":"차단"},{"id":"L002","milestone":"D-90","phase":"기획 컨펌","category":"법무","item":"참가 약관 / 동의서 양식 초안 작성","owner":"법무팀","risk":"차단"},{"id":"L003","milestone":"D-90","phase":"기획 컨펌","category":"법무","item":"AI 생성물 책임 면책 조항 검토","owner":"법무팀","risk":"높음"},{"id":"L004","milestone":"D-90","phase":"기획 컨펌","category":"법무","item":"현직자 겸직 금지 대응 가이드 수립","owner":"법무팀","risk":"높음"},{"id":"L005","milestone":"D-90","phase":"기획 컨펌","category":"재무","item":"임원 예산 승인 (3억 9,400만원)","owner":"전략실 업사이즈팀","risk":"차단"},{"id":"L006","milestone":"D-90","phase":"기획 컨펌","category":"재무","item":"예비비 10% 사전 확보","owner":"전략실 업사이즈팀","risk":"높음"},{"id":"L007","milestone":"D-90","phase":"기획 컨펌","category":"공간","item":"플레이뮤지엄 10층 48시간 사용 승인","owner":"총무 / 사옥관리","risk":"차단"},{"id":"L008","milestone":"D-90","phase":"기획 컨펌","category":"심사","item":"심사위원 / 멘토 후보 리스트 작성","owner":"전략실 업사이즈팀","risk":"높음"},{"id":"L009","milestone":"D-90","phase":"기획 컨펌","category":"후원","item":"문체부 후원 조건 협의 시작","owner":"정책실","risk":"보통"},{"id":"L010","milestone":"D-90","phase":"기획 컨펌","category":"운영","item":"유관부서 협조 공문 발송","owner":"전략실 업사이즈팀","risk":"높음"},{"id":"L011","milestone":"D-90","phase":"기획 컨펌","category":"대행","item":"대행사(대학내일) 계약 착수","owner":"전략실 업사이즈팀","risk":"높음"},{"id":"L012","milestone":"D-60","phase":"인프라 구축","category":"법무","item":"참가 약관 최종 확정 및 사이트 게시 준비","owner":"법무팀","risk":"차단"},{"id":"L013","milestone":"D-60","phase":"인프라 구축","category":"법무","item":"개인정보 처리방침 정보보호팀 검토 완료","owner":"정보보호 / 보안","risk":"차단"},{"id":"L014","milestone":"D-60","phase":"인프라 구축","category":"기술","item":"해커톤 웹페이지 구축 및 신청폼 개발 완료","owner":"사업실 / 웹개발","risk":"차단"},{"id":"L015","milestone":"D-60","phase":"인프라 구축","category":"기술","item":"신청 데이터 수집 / 관리 시스템 보안 점검","owner":"정보보호 / 보안","risk":"높음"},{"id":"L016","milestone":"D-60","phase":"인프라 구축","category":"디자인","item":"NAN 브랜드 가이드라인 수립 (로고·컬러·타이포)","owner":"디자인실","risk":"높음"},{"id":"L017","milestone":"D-60","phase":"인프라 구축","category":"디자인","item":"홍보 소재 초안 제작 (배너·포스터·SNS)","owner":"디자인실","risk":"높음"},{"id":"L018","milestone":"D-60","phase":"인프라 구축","category":"심사","item":"심사위원 / 멘토 50% 이상 섭외 확정","owner":"전략실 업사이즈팀","risk":"차단"},{"id":"L019","milestone":"D-60","phase":"인프라 구축","category":"기술","item":"현장 미션 3종 운영 기준 초안","owner":"AI 기술 협의회","risk":"높음"},{"id":"L020","milestone":"D-60","phase":"인프라 구축","category":"기술","item":"AI 기술 가이드 초안 제작","owner":"AI 기술 협의회","risk":"보통"},{"id":"L021","milestone":"D-60","phase":"인프라 구축","category":"운영","item":"운영 매뉴얼 초안 작성","owner":"전략실 업사이즈팀","risk":"높음"},{"id":"L022","milestone":"D-60","phase":"인프라 구축","category":"공간","item":"행사 기간 중 건물 운영 협의 완료","owner":"총무 / 사옥관리","risk":"차단"},{"id":"L023","milestone":"D-30","phase":"모집 홍보","category":"모집","item":"모집 공고 오픈 및 보도자료 배포","owner":"홍보실 / 사업실","risk":"차단"},{"id":"L024","milestone":"D-30","phase":"모집 홍보","category":"모집","item":"타겟별 채널 운영 (캠퍼스픽·블라인드·itch.io 등)","owner":"대행사 / 홍보실","risk":"높음"},{"id":"L025","milestone":"D-30","phase":"모집 홍보","category":"모집","item":"판교 / 구로 IT 타겟 오프라인 캠페인 집행","owner":"대행사","risk":"높음"},{"id":"L026","milestone":"D-30","phase":"모집 홍보","category":"모집","item":"중간 신청 현황 점검 (D-21 기준 50% 도달)","owner":"사업실","risk":"높음"},{"id":"L027","milestone":"D-30","phase":"모집 홍보","category":"모집","item":"신청 부진 시 추가 홍보 채널 가동 결정","owner":"전략실 업사이즈팀","risk":"높음"},{"id":"L028","milestone":"D-30","phase":"모집 홍보","category":"기술","item":"신청 접수 현황 모니터링 / 지원자 문의 대응","owner":"사업실","risk":"보통"},{"id":"L029","milestone":"D-30","phase":"모집 홍보","category":"후원","item":"문체부 후원 승인 확정","owner":"정책실","risk":"높음"},{"id":"L030","milestone":"D-30","phase":"모집 홍보","category":"심사","item":"심사위원 / 멘토 100% 확정","owner":"전략실 업사이즈팀","risk":"차단"},{"id":"L031","milestone":"D-30","phase":"모집 홍보","category":"운영","item":"운영 매뉴얼 최종 확정","owner":"전략실 업사이즈팀","risk":"높음"},{"id":"L032","milestone":"D-30","phase":"모집 홍보","category":"법무","item":"외부 멘토 / 심사위원 NDA 체결","owner":"법무팀","risk":"높음"},{"id":"L033","milestone":"D-14","phase":"선발","category":"심사","item":"사전 과제 심사 (서류 + 기술 + 아트)","owner":"AI 기술 협의회 / 아트 조직","risk":"차단"},{"id":"L034","milestone":"D-14","phase":"선발","category":"모집","item":"10팀 최종 확정 및 합격 / 불합격 안내 발송","owner":"사업실 / 인사실","risk":"차단"},{"id":"L035","milestone":"D-14","phase":"선발","category":"모집","item":"신청자 50% 미만 시 행사 진행 재검토","owner":"전략실 업사이즈팀","risk":"차단"},{"id":"L036","milestone":"D-14","phase":"선발","category":"법무","item":"합격팀 권리 일임 동의서 / 개인정보 처리 동의 수령","owner":"인사실 / 법무팀","risk":"차단"},{"id":"L037","milestone":"D-14","phase":"선발","category":"법무","item":"미성년자 (만 19세 미만) 자동 차단 시스템 검증","owner":"사업실","risk":"차단"},{"id":"L038","milestone":"D-14","phase":"선발","category":"테마","item":"테마 5개 공개 및 신청자 투표 시작","owner":"전략실 업사이즈팀","risk":"보통"},{"id":"L039","milestone":"D-14","phase":"선발","category":"심사","item":"현장 미션 3종 최종 확정 및 봉투 밀봉","owner":"AI 기술 협의회","risk":"높음"},{"id":"L040","milestone":"D-7","phase":"현장 준비","category":"공간","item":"공간 배치 / 책상 / 전원 설비 점검","owner":"총무 / 사옥관리","risk":"차단"},{"id":"L041","milestone":"D-7","phase":"현장 준비","category":"공간","item":"비상 대피 경로 안내 자료 비치","owner":"총무 / 사옥관리","risk":"차단"},{"id":"L042","milestone":"D-7","phase":"현장 준비","category":"공간","item":"케이터링 반입 동선 협의 완료","owner":"총무 / 사옥관리","risk":"보통"},{"id":"L043","milestone":"D-7","phase":"현장 준비","category":"기술","item":"행사 당일 네트워크 보안 설정","owner":"정보보호 / 보안","risk":"차단"},{"id":"L044","milestone":"D-7","phase":"현장 준비","category":"기술","item":"참가자 Wi-Fi 분리 운영 기준 확정","owner":"정보보호 / 보안","risk":"차단"},{"id":"L045","milestone":"D-7","phase":"현장 준비","category":"기술","item":"외부 AI API 차단 정책 사전 해제 (Claude·OpenAI·Google)","owner":"정보보호 / 보안","risk":"차단"},{"id":"L046","milestone":"D-7","phase":"현장 준비","category":"디자인","item":"사이니지 / 포토월 / 안내판 설치","owner":"디자인실","risk":"높음"},{"id":"L047","milestone":"D-7","phase":"현장 준비","category":"디자인","item":"시상식 무대 디자인 확정 / 웰컴키트 디자인 검수","owner":"디자인실","risk":"보통"},{"id":"L048","milestone":"D-7","phase":"현장 준비","category":"운영","item":"전 스텝 사전 브리핑 (운영 매뉴얼 공유)","owner":"전략실 업사이즈팀","risk":"높음"},{"id":"L049","milestone":"D-7","phase":"현장 준비","category":"심사","item":"심사위원 / 멘토 최종 브리핑","owner":"전략실 업사이즈팀","risk":"높음"},{"id":"L050","milestone":"D-7","phase":"현장 준비","category":"심사","item":"현장 기술 장비 점검 (빌드 환경 검증)","owner":"AI 기술 협의회","risk":"차단"},{"id":"L051","milestone":"D-7","phase":"현장 준비","category":"운영","item":"참가자 알레르기 / 식단 제한 사전 조사","owner":"사업실","risk":"보통"},{"id":"L052","milestone":"D-7","phase":"현장 준비","category":"운영","item":"응급 의료 연락망 / 인근 병원 정보 정리","owner":"총무 / 사옥관리","risk":"차단"},{"id":"L053","milestone":"D-7","phase":"현장 준비","category":"기술","item":"itch.io 업로드 테스트 및 사전 계정 발급 안내","owner":"AI 기술 협의회","risk":"높음"},{"id":"L054","milestone":"D-1","phase":"최종 점검","category":"모집","item":"참가자 최종 참여 확인 콜 (노쇼 대비)","owner":"사업실","risk":"차단"},{"id":"L055","milestone":"D-1","phase":"최종 점검","category":"모집","item":"노쇼 발생 시 대기팀 호출 프로세스 점검","owner":"전략실 업사이즈팀","risk":"높음"},{"id":"L056","milestone":"D-1","phase":"최종 점검","category":"기술","item":"심사 집계 시스템 최종 점검","owner":"사업실 / 웹개발","risk":"차단"},{"id":"L057","milestone":"D-1","phase":"최종 점검","category":"기술","item":"중계 장비 셋업 및 백업 장비 확인","owner":"게미커팀","risk":"높음"},{"id":"L058","milestone":"D-1","phase":"최종 점검","category":"운영","item":"야간 책임자 / 24시간 교대 근무표 확정","owner":"전략실 업사이즈팀","risk":"차단"},{"id":"L059","milestone":"D-1","phase":"최종 점검","category":"운영","item":"오프닝 / 시상식 음향 사전 리허설","owner":"게미커팀","risk":"보통"},{"id":"L060","milestone":"D-Day","phase":"Day 1","category":"운영","item":"16:00 오프닝 MC 진행 / 주제 발표 / 48시간 시작 선언","owner":"전략실 업사이즈팀","risk":"차단"},{"id":"L061","milestone":"D-Day","phase":"Day 1","category":"운영","item":"참가자 체크인 / 웰컴키트 배포 / 신분증 검사","owner":"사업실 / 대행사","risk":"차단"},{"id":"L062","milestone":"D-Day","phase":"Day 1","category":"법무","item":"현장 촬영 / 영상 사용 동의서 수령","owner":"법무팀 / 사업실","risk":"차단"},{"id":"L063","milestone":"D-Day","phase":"Day 1","category":"기술","item":"기술 질문 상주 대응 / API 연동 이슈 긴급 지원","owner":"AI 기술 협의회","risk":"높음"},{"id":"L064","milestone":"D-Day","phase":"Day 1","category":"기술","item":"23:00 1차 체크포인트 순회 (핵심 에이전트 작동 확인)","owner":"전략실 / AI 기술 협의회","risk":"높음"},{"id":"L065","milestone":"D-Day","phase":"Day 2","category":"심사","item":"10:00 멘토 라운딩 (에이전트 구조 / AI 아트 피드백)","owner":"AI 기술 협의회 / 아트 조직","risk":"높음"},{"id":"L066","milestone":"D-Day","phase":"Day 2","category":"현장미션","item":"15:00 현장 미션 추첨 (공개) / 전 팀 미션지 동시 배포","owner":"전략실 업사이즈팀","risk":"차단"},{"id":"L067","milestone":"D-Day","phase":"Day 2","category":"현장미션","item":"미션 수행 감독 (룰 해석 공식 응대)","owner":"AI 기술 협의회","risk":"높음"},{"id":"L068","milestone":"D-Day","phase":"Day 2","category":"현장미션","item":"미션 시작 / 종료 타이머 공식 관리","owner":"사업실","risk":"차단"},{"id":"L069","milestone":"D-Day","phase":"Day 3","category":"심사","item":"08:00 최종 제출 마감 (게임 빌드 + 설계 명세서 + AI 호출 로그)","owner":"사업실","risk":"차단"},{"id":"L070","milestone":"D-Day","phase":"Day 3","category":"심사","item":"09:00~12:00 심사 시연 (팀당 20분: 발표·시연·Q&A)","owner":"AI 기술 협의회","risk":"차단"},{"id":"L071","milestone":"D-Day","phase":"Day 3","category":"운영","item":"14:00 시상식 MC 진행 / 채용 연계 안내 / 2회차 티저","owner":"전략실 업사이즈팀","risk":"차단"},{"id":"L072","milestone":"D+30","phase":"후속 관리","category":"보고","item":"성과 보고서 작성 및 임원 보고","owner":"전략실 업사이즈팀","risk":"높음"},{"id":"L073","milestone":"D+30","phase":"후속 관리","category":"보고","item":"문체부 결과 보고서 제출","owner":"정책실","risk":"높음"},{"id":"L074","milestone":"D+30","phase":"후속 관리","category":"채용","item":"수상자 채용 전형 (최종 면접 직행) 진행","owner":"인사실","risk":"차단"},{"id":"L075","milestone":"D+30","phase":"후속 관리","category":"채용","item":"채용 사이닝 / 근속 인센티브 지급 프로세스 가동","owner":"인사실","risk":"높음"},{"id":"L076","milestone":"D+30","phase":"후속 관리","category":"법무","item":"수상작 퍼블리싱 우선 협상권 (1년) 행사 시작","owner":"법무팀 / 사업실","risk":"보통"},{"id":"L077","milestone":"D+30","phase":"후속 관리","category":"홍보","item":"하이라이트 영상 발행 / 외부 채널 노출","owner":"홍보실 / 게미커팀","risk":"보통"},{"id":"L078","milestone":"D+30","phase":"후속 관리","category":"법무","item":"참가자 개인정보 파기 처리 (보유 기간 외)","owner":"정보보호 / 보안","risk":"차단"},{"id":"L079","milestone":"D+30","phase":"후속 관리","category":"운영","item":"전 조직 운영 회고 미팅 / 2회차 반영 사항 도출","owner":"전략실 업사이즈팀","risk":"낮음"},{"id":"L080","milestone":"D+30","phase":"후속 관리","category":"운영","item":"수상자 외 상위 30% 우수 참가자 인재 DB 등록","owner":"인사실","risk":"보통"}];
+
+// ===== 체크리스트 렌더링 =====
+const milestoneOrder = ['D-90', 'D-60', 'D-30', 'D-14', 'D-7', 'D-1', 'D-Day', 'D+30'];
+const milestoneInfo = {
+  'D-90':  {phase: '기획 컨펌',   date: '2026.04 4주',     style: 'normal'},
+  'D-60':  {phase: '인프라 구축', date: '2026.05',          style: 'normal'},
+  'D-30':  {phase: '모집 홍보',   date: '2026.06',          style: 'normal'},
+  'D-14':  {phase: '선발',         date: '2026.07.1주',     style: 'warning'},
+  'D-7':   {phase: '현장 준비',   date: '2026.07.3주',     style: 'warning'},
+  'D-1':   {phase: '최종 점검',   date: '2026.07.23',      style: 'urgent'},
+  'D-Day': {phase: '본 행사',     date: '2026.07.24~26',   style: 'urgent'},
+  'D+30':  {phase: '후속 관리',   date: '2026.08',          style: 'normal'}
+};
+const riskClassMap = {
+  '차단': 'risk-block',
+  '높음': 'risk-high',
+  '보통': 'risk-mid',
+  '낮음': 'risk-low'
+};
+
+function renderChecklist() {
+  const container = document.getElementById('checklist-container');
+  if (!container) return;
+  
+  // 마일스톤별 그룹화
+  const groups = {};
+  milestoneOrder.forEach(ms => groups[ms] = []);
+  checklistData.forEach(item => {
+    if (groups[item.milestone]) groups[item.milestone].push(item);
+  });
+  
+  let html = '';
+  milestoneOrder.forEach(ms => {
+    const items = groups[ms];
+    if (!items || items.length === 0) return;
+    const info = milestoneInfo[ms];
+    const keyClass = info.style === 'urgent' ? 'urgent' : (info.style === 'warning' ? 'warning' : '');
+    
+    html += `<div class="milestone-group" data-milestone="${ms}">
+      <div class="milestone-header">
+        <div class="milestone-key ${keyClass}">${ms}</div>
+        <div class="milestone-info">
+          <div class="milestone-phase">${info.phase}</div>
+          <div class="milestone-date">${info.date}</div>
+        </div>
+        <div class="milestone-count">${items.length}개 항목</div>
+      </div>
+      <div class="checklist-items">`;
+    
+    items.forEach(item => {
+      const riskClass = riskClassMap[item.risk] || 'risk-mid';
+      html += `<div class="checklist-item" data-milestone="${item.milestone}" data-risk="${item.risk}">
+        <div class="checklist-item-id">${item.id}</div>
+        <div class="checklist-item-content">
+          <div class="checklist-item-cat">${item.category}</div>
+          <div class="checklist-item-text">${item.item}</div>
+        </div>
+        <div class="checklist-item-owner">${item.owner}</div>
+        <div class="checklist-item-risk ${riskClass}">${item.risk}</div>
+      </div>`;
+    });
+    
+    html += `</div></div>`;
+  });
+  
+  container.innerHTML = html;
+}
+
+renderChecklist();
+
+// ===== 체크리스트 필터 =====
+let currentMilestone = 'all';
+let currentRisk = 'all';
+
+function applyChecklistFilter() {
+  document.querySelectorAll('.checklist-item').forEach(item => {
+    const ms = item.dataset.milestone;
+    const risk = item.dataset.risk;
+    
+    let msMatch = (currentMilestone === 'all' || ms === currentMilestone);
+    let riskMatch = true;
+    if (currentRisk === '차단') riskMatch = (risk === '차단');
+    else if (currentRisk === '높음') riskMatch = (risk === '차단' || risk === '높음');
+    
+    if (msMatch && riskMatch) {
+      item.classList.remove('dimmed');
+    } else {
+      item.classList.add('dimmed');
+    }
+  });
+  
+  // 빈 그룹 숨기기
+  document.querySelectorAll('.milestone-group').forEach(group => {
+    const visibleItems = group.querySelectorAll('.checklist-item:not(.dimmed)').length;
+    if (visibleItems === 0) {
+      group.classList.add('dimmed');
+    } else {
+      group.classList.remove('dimmed');
+    }
+  });
+}
+
+document.querySelectorAll('.checklist-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const type = btn.dataset.filterType;
+    const filter = btn.dataset.filter;
+    
+    // 같은 type의 다른 버튼 active 해제
+    document.querySelectorAll(`.checklist-btn[data-filter-type="${type}"]`).forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    if (type === 'milestone') currentMilestone = filter;
+    else if (type === 'risk') currentRisk = filter;
+    
+    applyChecklistFilter();
+  });
+});
+
+// ===== 상단 nav 스크롤 시 active 표시 =====
+const navLinks = document.querySelectorAll('.top-nav-link');
+const sections = {
+  '#cover-top': document.getElementById('cover-top'),
+  '#appendix-start': document.getElementById('appendix-start'),
+  '#checklist-start': document.getElementById('checklist-start')
+};
+
+window.addEventListener('scroll', () => {
+  const scrollPos = window.scrollY + 100;
+  // 각 섹션 위치 확인
+}, { passive: true });
+
 </script>
 
 </body>
