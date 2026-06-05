@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  /* === 나눔스퀘어 네오 웹폰트 === */
+  @font-face {
+    font-family: 'NanumSquareNeo';
+    font-weight: 400;
+    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumSquareNeo/NanumSquareNeoTTF-bRg.woff2') format('woff2');
+    font-display: block;
+  }
+  @font-face {
+    font-family: 'NanumSquareNeo';
+    font-weight: 500;
+    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumSquareNeo/NanumSquareNeoTTF-cBd.woff2') format('woff2');
+    font-display: block;
+  }
+  @font-face {
+    font-family: 'NanumSquareNeo';
+    font-weight: 600;
+    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumSquareNeo/NanumSquareNeoTTF-dEb.woff2') format('woff2');
+    font-display: block;
+  }
+  @font-face {
+    font-family: 'NanumSquareNeo';
+    font-weight: 700;
+    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumSquareNeo/NanumSquareNeoTTF-eHv.woff2') format('woff2');
+    font-display: block;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    margin: 0;
+    padding: 22px 24px 18px;
+    background: #fafaf7;
+    font-family: 'NanumSquareNeo', '나눔스퀘어 네오', '맑은 고딕', sans-serif;
+    width: 1000px;
+    color: #1a1a1a;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .doc-tag {
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: #b8341f;
+    letter-spacing: 0.22em;
+    margin-bottom: 5px;
+  }
+  .title {
+    font-size: 16pt;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 3px;
+    letter-spacing: -0.025em;
+  }
+  .title .em {
+    background: linear-gradient(transparent 60%, #fff4a3 60%);
+    padding: 0 3px;
+  }
+  .subtitle {
+    font-size: 9pt;
+    color: #4a4a45;
+    font-weight: 500;
+  }
+
+  .calendars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .month {
+    background: white;
+    border: 1px solid #d8d4cb;
+    padding: 11px 11px 13px;
+  }
+  .month-title {
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1.5px solid #1a1a1a;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    letter-spacing: -0.02em;
+  }
+  .month-title .ko {
+    font-size: 11.5pt;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+  .month-title .en {
+    font-size: 7pt;
+    font-weight: 600;
+    color: #888880;
+    letter-spacing: 0.14em;
+  }
+  table.cal {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .cal th {
+    font-size: 6.8pt;
+    font-weight: 700;
+    color: #888880;
+    padding: 4px 0 6px;
+    text-align: center;
+    letter-spacing: 0.12em;
+  }
+  .cal th.sun { color: #b8341f; }
+  .cal th.sat { color: #5b6b94; }
+  .cal td {
+    height: 46px;
+    width: 14.28%;
+    text-align: center;
+    vertical-align: top;
+    padding: 4px 2px 3px;
+    font-size: 10pt;
+    font-weight: 500;
+    color: #1a1a1a;
+    position: relative;
+    border: 1px solid #f0eee5;
+    line-height: 1.15;
+  }
+  .cal td.empty { background: #fafaf7; }
+  .cal td.sun { color: #b8341f; }
+  .cal td.sat { color: #5b6b94; }
+
+  /* 단계별 강조 */
+  .cal td.recruit { background: #f5e8e3; }
+  .cal td.review  { background: #e6e0d0; }
+  .cal td.peak,
+  .cal td.event {
+    background: #b8341f;
+    color: white !important;
+    font-weight: 700;
+  }
+  .cal td .badge {
+    display: block;
+    margin-top: 4px;
+    font-size: 6pt;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+  }
+  .cal td.peak .badge,
+  .cal td.event .badge {
+    color: white;
+  }
+  .cal td.recruit .badge,
+  .cal td.review .badge {
+    color: #b8341f;
+  }
+
+  .legend {
+    margin-top: 14px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 9px;
+    background: white;
+    border: 1px solid #d8d4cb;
+  }
+  .legend-swatch {
+    width: 16px;
+    height: 14px;
+    border: 1px solid #d8d4cb;
+    flex-shrink: 0;
+  }
+  .sw-recruit { background: #f5e8e3; }
+  .sw-review  { background: #e6e0d0; }
+  .sw-peak    { background: #b8341f; border-color: #b8341f; }
+  .sw-event   { background: #b8341f; border-color: #b8341f; }
+  .legend-item .lg-title {
+    font-weight: 700;
+    color: #1a1a1a;
+    font-size: 8.5pt;
+    margin-right: 3px;
+  }
+  .legend-item .lg-name {
+    font-size: 8.5pt;
+    color: #1a1a1a;
+    font-weight: 600;
+  }
+  .legend-item .lg-desc {
+    color: #888880;
+    font-size: 7.4pt;
+    font-weight: 500;
+    margin-top: 2px;
+    letter-spacing: -0.005em;
+  }
+
+  .footer-text {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 6.8pt;
+    color: #888880;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="doc-tag">NAN 2026 · OPERATION MILESTONES</div>
+    <div class="title">7월 <span class="em">→</span> 8월 <span class="em">→</span> 9월 운영 캘린더</div>
+    <div class="subtitle">7.10 모집 시작 → 9.6 행사 종료 · 총 8주 4단계 운영</div>
+  </div>
+
+  <div class="calendars">
+    <!-- 7월 -->
+    <div class="month">
+      <div class="month-title"><span class="ko">7월</span><span class="en">JULY 2026</span></div>
+      <table class="cal">
+        <thead>
+          <tr>
+            <th class="sun">SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th class="sat">SAT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="empty"></td><td class="empty"></td><td class="empty"></td>
+            <td>1</td><td>2</td><td>3</td><td class="sat">4</td>
+          </tr>
+          <tr>
+            <td class="sun">5</td><td>6</td><td>7</td><td>8</td><td>9</td>
+            <td class="peak">10<span class="badge">START</span></td>
+            <td class="recruit sat">11</td>
+          </tr>
+          <tr>
+            <td class="recruit sun">12</td><td class="recruit">13</td><td class="recruit">14</td>
+            <td class="recruit">15</td><td class="recruit">16</td><td class="recruit">17</td>
+            <td class="recruit sat">18</td>
+          </tr>
+          <tr>
+            <td class="recruit sun">19</td><td class="recruit">20</td><td class="recruit">21</td>
+            <td class="recruit">22</td><td class="recruit">23</td><td class="recruit">24</td>
+            <td class="recruit sat">25</td>
+          </tr>
+          <tr>
+            <td class="recruit sun">26</td><td class="recruit">27</td><td class="recruit">28</td>
+            <td class="recruit">29</td><td class="recruit">30</td><td class="recruit">31</td>
+            <td class="empty"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 8월 -->
+    <div class="month">
+      <div class="month-title"><span class="ko">8월</span><span class="en">AUGUST 2026</span></div>
+      <table class="cal">
+        <thead>
+          <tr>
+            <th class="sun">SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th class="sat">SAT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="empty"></td><td class="empty"></td><td class="empty"></td>
+            <td class="empty"></td><td class="empty"></td><td class="empty"></td>
+            <td class="recruit sat">1</td>
+          </tr>
+          <tr>
+            <td class="recruit sun">2</td><td class="recruit">3</td><td class="recruit">4</td>
+            <td class="recruit">5</td><td class="recruit">6</td><td class="recruit">7</td>
+            <td class="recruit sat">8</td>
+          </tr>
+          <tr>
+            <td class="recruit sun">9</td>
+            <td class="peak">10<span class="badge">마감</span></td>
+            <td class="review">11<span class="badge">심사</span></td>
+            <td class="review">12</td><td class="review">13</td><td class="review">14</td>
+            <td class="review sat">15</td>
+          </tr>
+          <tr>
+            <td class="review sun">16</td><td class="review">17</td><td class="review">18</td>
+            <td class="review">19</td><td class="review">20</td>
+            <td class="review">21</td>
+            <td class="peak sat">22<span class="badge">발표</span></td>
+          </tr>
+          <tr>
+            <td class="sun">23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td class="sat">29</td>
+          </tr>
+          <tr>
+            <td class="sun">30</td><td>31</td>
+            <td class="empty"></td><td class="empty"></td><td class="empty"></td><td class="empty"></td><td class="empty"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 9월 -->
+    <div class="month">
+      <div class="month-title"><span class="ko">9월</span><span class="en">SEPTEMBER 2026</span></div>
+      <table class="cal">
+        <thead>
+          <tr>
+            <th class="sun">SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th class="sat">SAT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="empty"></td><td class="empty"></td>
+            <td>1</td><td>2</td><td>3</td>
+            <td class="event">4<span class="badge">D1</span></td>
+            <td class="event sat">5<span class="badge">D2</span></td>
+          </tr>
+          <tr>
+            <td class="event sun">6<span class="badge">D3</span></td>
+            <td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td class="sat">12</td>
+          </tr>
+          <tr>
+            <td class="sun">13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td class="sat">19</td>
+          </tr>
+          <tr>
+            <td class="sun">20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td class="sat">26</td>
+          </tr>
+          <tr>
+            <td class="sun">27</td><td>28</td><td>29</td><td>30</td>
+            <td class="empty"></td><td class="empty"></td><td class="empty"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-swatch sw-recruit"></div>
+      <div>
+        <div><span class="lg-title">STAGE 1</span><span class="lg-name">모집 접수</span></div>
+        <div class="lg-desc">7.10(금) ~ 8.10(월) · 32일</div>
+      </div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-swatch sw-review"></div>
+      <div>
+        <div><span class="lg-title">STAGE 2</span><span class="lg-name">사전과제 심사</span></div>
+        <div class="lg-desc">8.11(화) ~ 8.21(금) · 11일</div>
+      </div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-swatch sw-peak"></div>
+      <div>
+        <div><span class="lg-title">STAGE 3</span><span class="lg-name">합격자 발표</span></div>
+        <div class="lg-desc">8.22(토) · 단일 시점</div>
+      </div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-swatch sw-event"></div>
+      <div>
+        <div><span class="lg-title">STAGE 4</span><span class="lg-name">본 행사 48h</span></div>
+        <div class="lg-desc">9.4(금) ~ 9.6(일)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-text">NAN 2026 · CONFIDENTIAL</div>
+</body>
+</html>

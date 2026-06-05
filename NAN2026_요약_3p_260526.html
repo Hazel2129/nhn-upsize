@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[보고서] AI 고역량 인재 발굴 해커톤 'NAN 2026' 진행 계획</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* === 나눔스퀘어 네오 웹폰트 === */
+  @font-face {
+    font-family: 'NanumSquareNeo';
+    font-weight: 400;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumSquareNeo/NanumSquareNeoTTF-bRg.woff2') format('woff2');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'NanumSquareNeo';
+    font-weight: 500;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumSquareNeo/NanumSquareNeoTTF-cBd.woff2') format('woff2');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'NanumSquareNeo';
+    font-weight: 600;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumSquareNeo/NanumSquareNeoTTF-dEb.woff2') format('woff2');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'NanumSquareNeo';
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumSquareNeo/NanumSquareNeoTTF-eHv.woff2') format('woff2');
+    font-display: swap;
+  }
+  :root {
+    --bg: #fafaf7;
+    --bg-page: #ffffff;
+    --bg-soft: #f4f3ee;
+    --bg-cell: #faf9f4;
+    --line: #d8d4cb;
+    --line-soft: #e8e4db;
+    --text: #1a1a1a;
+    --text-soft: #4a4a45;
+    --text-muted: #888880;
+    --text-light: #b8b3a8;
+    --accent: #b8341f;
+    --accent-soft: #f5e8e3;
+    --highlight: #fff4a3;
+    --sans: 'NanumSquareNeo', '나눔스퀘어 네오', 'NanumSquare', '나눔스퀘어', -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 30px 20px;
+  }
+  .page {
+    max-width: 1120px;
+    margin: 0 auto 30px;
+    background: var(--bg-page);
+    padding: 50px 60px 56px;
+    border: 1px solid var(--line);
+    position: relative;
+  }
+  .page-num {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+  }
+  .page-tag {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--accent);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  h1 .em {
+    background: linear-gradient(transparent 60%, var(--highlight) 60%);
+    padding: 0 4px;
+  }
+  .deck {
+    font-size: 1.02rem;
+    color: var(--text-soft);
+    line-height: 1.55;
+    margin-bottom: 26px;
+    padding-bottom: 18px;
+    border-bottom: 2px solid var(--text);
+    max-width: 92%;
+  }
+  h2 {
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin: 20px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+    letter-spacing: -0.01em;
+  }
+  h2 .num {
+    font-family: var(--mono);
+    color: var(--accent);
+    font-size: 0.92rem;
+    margin-right: 6px;
+  }
+  p { color: var(--text-soft); font-size: 0.94rem; margin-bottom: 8px; }
+  p strong { color: var(--text); font-weight: 500; }
+
+  /* Page 1 — declaration + 3 cards */
+  .declaration {
+    background: var(--bg-soft);
+    border-left: 4px solid var(--accent);
+    padding: 18px 22px;
+    margin: 18px 0 28px;
+  }
+  .declaration .lead {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .declaration .body {
+    font-size: 1.04rem;
+    line-height: 1.55;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .declaration .body .not {
+    color: var(--text-muted);
+    text-decoration: line-through;
+    text-decoration-thickness: 1.5px;
+    text-decoration-color: var(--text-light);
+    font-weight: 400;
+  }
+  .declaration .body .is {
+    background: var(--highlight);
+    padding: 1px 6px;
+    font-weight: 700;
+  }
+  .card-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .card {
+    border: 1px solid var(--line);
+    background: var(--bg-cell);
+    padding: 18px 18px 20px;
+    position: relative;
+  }
+  .card .order {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--accent);
+    letter-spacing: 0.14em;
+    margin-bottom: 8px;
+  }
+  .card h3 {
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.35;
+    margin-bottom: 10px;
+  }
+  .card p {
+    font-size: 0.86rem;
+    color: var(--text-soft);
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+  .card .kw {
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .card .priority {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    background: var(--accent);
+    color: white;
+    padding: 2px 7px;
+    letter-spacing: 0.08em;
+  }
+
+  /* Page 2 — reward */
+  .reward-total {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin: 14px 0 22px;
+    padding: 18px 22px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+  }
+  .reward-total .label {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .reward-total .amount {
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+  .reward-total .unit {
+    font-size: 1.1rem;
+    color: var(--text-soft);
+    font-weight: 500;
+  }
+  .reward-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  .reward-card {
+    border: 1px solid var(--line);
+    background: var(--bg-page);
+    padding: 18px 18px 18px;
+  }
+  .reward-card.team { border-top: 4px solid var(--accent); }
+  .reward-card.signing { border-top: 4px solid #6b7c44; }
+  .reward-card.tenure { border-top: 4px solid #8c6b3d; }
+  .reward-card .kind {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    letter-spacing: 0.14em;
+    margin-bottom: 4px;
+  }
+  .reward-card .who {
+    font-size: 0.82rem;
+    color: var(--text-soft);
+    margin-bottom: 10px;
+  }
+  .reward-card .amt {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+  .reward-card .amt .small { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; }
+  .reward-card .note {
+    font-size: 0.82rem;
+    color: var(--text-soft);
+    line-height: 1.5;
+  }
+  .design-intent {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+  }
+  .design-intent h4 {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .design-intent p {
+    font-size: 0.88rem;
+    color: var(--text-soft);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  /* Page 3 — selection & evaluation */
+  .selection-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 12px;
+  }
+  .sel-col {
+    border: 1px solid var(--line);
+    background: var(--bg-page);
+    padding: 22px 22px 24px;
+    position: relative;
+  }
+  .sel-col .stage-tag {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--accent);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .sel-col h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .flow-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px;
+  }
+  .flow-list li {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 0.92rem;
+    color: var(--text-soft);
+    line-height: 1.5;
+  }
+  .flow-list li:last-child { border-bottom: none; }
+  .flow-list li .step {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--accent);
+    font-weight: 500;
+    min-width: 32px;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+  .flow-list li .text strong { color: var(--text); }
+  .flow-list li .text .sub {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .score-bar {
+    margin-top: 4px;
+  }
+  .score-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--line-soft);
+  }
+  .score-row:last-child { border-bottom: none; }
+  .score-row.emphasize {
+    border: 2px solid var(--accent);
+    background: var(--accent-soft);
+    padding: 10px 12px;
+    margin: 4px 0;
+    border-radius: 3px;
+    position: relative;
+  }
+  .score-row.emphasize .score-label,
+  .score-row.emphasize .score-pts { color: var(--accent); font-weight: 600; }
+  .score-row.emphasize .score-label .desc { color: var(--accent); opacity: 0.85; font-weight: 500; }
+  .score-row.emphasize::before {
+    content: "핵심 평가";
+    position: absolute;
+    top: -9px;
+    left: 12px;
+    background: var(--accent);
+    color: white;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    font-weight: 600;
+    padding: 1px 7px;
+    letter-spacing: 0.1em;
+  }
+  .score-label {
+    flex: 1;
+    font-size: 0.92rem;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .score-label .desc {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 1px;
+    font-weight: 400;
+  }
+  .score-bar-track {
+    flex: 1.6;
+    height: 14px;
+    background: var(--bg-soft);
+    position: relative;
+    border: 1px solid var(--line-soft);
+  }
+  .score-bar-fill {
+    height: 100%;
+    background: var(--accent);
+  }
+  .score-bar-fill.alt1 { background: #6b7c44; }
+  .score-bar-fill.alt2 { background: #8c6b3d; }
+  .score-bar-fill.alt3 { background: #4a4a45; }
+  .score-pts {
+    min-width: 42px;
+    text-align: right;
+    font-family: var(--mono);
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .score-total {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 2px solid var(--text);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--mono);
+    font-size: 0.86rem;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+  }
+  .score-total .num {
+    color: var(--accent);
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  footer {
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    letter-spacing: 0.16em;
+    margin-top: 12px;
+  }
+
+  /* 보고서 격식 — Ⅰ/Ⅱ/Ⅲ 형식 */
+  .doc-title {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .section-block {
+    margin-bottom: 22px;
+  }
+  .section-head {
+    font-size: 1.06rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-head .roman {
+    color: var(--accent);
+    margin-right: 8px;
+    font-family: var(--mono);
+  }
+  .field-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line-soft);
+    align-items: baseline;
+  }
+  .field-row:last-child { border-bottom: none; }
+  .field-row .label {
+    font-size: 0.86rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  .field-row .value {
+    font-size: 0.94rem;
+    color: var(--text-soft);
+    line-height: 1.55;
+  }
+  .field-row .value strong { color: var(--text); font-weight: 500; }
+
+  /* Reward 표 형식 */
+  .reward-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 18px;
+    font-size: 0.9rem;
+  }
+  .reward-table th, .reward-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line-soft);
+    text-align: left;
+    vertical-align: middle;
+  }
+  .reward-table thead th {
+    background: var(--bg-soft);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.04em;
+    border-bottom: 1.5px solid var(--text);
+  }
+  .reward-table .stage {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 600;
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+  }
+  .reward-table .kind {
+    font-family: var(--sans);
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+  .reward-table .kind .who {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+  .reward-table .amt {
+    font-family: var(--sans);
+    font-weight: 600;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+  }
+  .reward-table .cond {
+    font-size: 0.86rem;
+    color: var(--text-soft);
+    line-height: 1.5;
+  }
+  .reward-table tfoot td {
+    border-top: 1.5px solid var(--text);
+    background: var(--bg-soft);
+    font-weight: 600;
+  }
+  .reward-table tfoot .amt { color: var(--accent); font-size: 1.05rem; }
+
+  /* Process numbered */
+  .process-block {
+    margin: 12px 0 18px;
+  }
+  .process-block .sub-h {
+    font-size: 0.94rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .process-block .sub-h .order {
+    font-family: var(--mono);
+    color: var(--accent);
+    margin-right: 6px;
+  }
+  .step-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .step-list li {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .step-list li:last-child { border-bottom: none; }
+  .step-list .stage-label {
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding-top: 2px;
+  }
+  .step-list .step-content strong {
+    color: var(--text);
+    display: block;
+    margin-bottom: 1px;
+  }
+  .step-list .step-content .desc {
+    color: var(--text-soft);
+    font-size: 0.86rem;
+  }
+
+  .submit-box {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    padding: 12px 14px;
+    margin-bottom: 14px;
+  }
+  .submit-box .title {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .submit-box .items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .submit-box .item {
+    background: var(--bg-page);
+    border: 1px solid var(--line-soft);
+    padding: 8px 10px;
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
+  .submit-box .item .it-num {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .submit-box .item .it-name {
+    font-weight: 500;
+    color: var(--text);
+    font-size: 0.84rem;
+  }
+
+  /* ===== Page 4 — D-Day Timeline ===== */
+  .day-timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 16px 0 18px;
+  }
+  .day-col {
+    border: 1px solid var(--line);
+    background: var(--bg-page);
+    overflow: hidden;
+  }
+  .day-head {
+    background: var(--text);
+    color: var(--bg-page);
+    padding: 12px 16px;
+    text-align: left;
+  }
+  .day-head .day-label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    opacity: 0.75;
+    margin-bottom: 4px;
+  }
+  .day-head .day-date {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .day-head .day-sub {
+    font-size: 0.78rem;
+    opacity: 0.85;
+    margin-top: 3px;
+    font-weight: 400;
+  }
+  .day-col.peak .day-head { background: var(--accent); }
+  .day-rows {
+    padding: 6px 0;
+  }
+  .day-row {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 10px;
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--line-soft);
+    align-items: baseline;
+  }
+  .day-row:last-child { border-bottom: none; }
+  .day-row.highlight {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    padding-left: 11px;
+  }
+  .day-row .time {
+    font-family: var(--mono);
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .day-row.highlight .time { color: var(--accent); font-weight: 700; }
+  .day-row .activity { font-size: 0.86rem; line-height: 1.45; }
+  .day-row .activity .act-name {
+    display: block;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1px;
+  }
+  .day-row.highlight .activity .act-name { font-weight: 700; }
+  .day-row .activity .act-desc {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+  .day-row .activity .badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    background: var(--accent);
+    color: white;
+    padding: 1px 6px;
+    margin-left: 4px;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    vertical-align: 1px;
+  }
+  .timeline-summary {
+    background: var(--bg-soft);
+    border-left: 3px solid var(--text);
+    padding: 14px 18px;
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .timeline-summary .item {
+    text-align: left;
+  }
+  .timeline-summary .item .lbl {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .timeline-summary .item .val {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+  }
+  .timeline-summary .item .val strong { font-weight: 700; color: var(--accent); }
+
+  /* ===== Page 5 — 14 Orgs ===== */
+  .org-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 14px 0 18px;
+  }
+  .org-stat {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    padding: 12px 14px;
+    text-align: left;
+  }
+  .org-stat .stat-num {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .org-stat .stat-lbl {
+    font-size: 0.78rem;
+    color: var(--text-soft);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .org-group {
+    margin-bottom: 14px;
+  }
+  .org-group-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+    border-bottom: 1.5px solid var(--text);
+  }
+  .org-group-head .cat-tag {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: white;
+    padding: 2px 8px;
+    letter-spacing: 0.1em;
+  }
+  .org-group.core .cat-tag { background: var(--accent); }
+  .org-group.comms .cat-tag { background: #6b7c44; }
+  .org-group.support .cat-tag { background: #8c6b3d; }
+  .org-group-head .cat-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .org-group-head .cat-count {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-left: auto;
+  }
+  .org-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+  }
+  .org-table th, .org-table td {
+    text-align: left;
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--line-soft);
+    vertical-align: middle;
+  }
+  .org-table thead th {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    background: var(--bg-soft);
+  }
+  .org-table .org-name {
+    font-weight: 700;
+    color: var(--text);
+    width: 22%;
+    line-height: 1.3;
+  }
+  .org-table .org-role {
+    color: var(--text-soft);
+    width: 24%;
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+  .org-table .org-milestones { width: 54%; }
+  .ms-dots { display: flex; gap: 3px; flex-wrap: wrap; align-items: center; }
+  .ms-dot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    font-weight: 700;
+    min-width: 50px;
+    height: 18px;
+    padding: 0 5px;
+    background: var(--line-soft);
+    color: var(--text-light);
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+  }
+  .ms-dot.active { background: var(--text-soft); color: white; }
+  .ms-dot.lead { background: var(--accent); color: white; }
+  .ms-dot.peak { background: var(--accent); color: white; font-weight: 700; box-shadow: 0 0 0 2px var(--accent-soft); }
+
+  /* ===== Page 4 (NEW) — Milestone Timeline ===== */
+  .ms-progress {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.6fr 1fr;
+    margin: 14px 0 18px;
+    border: 1px solid var(--line);
+    background: var(--bg-soft);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+  }
+  .ms-progress .seg {
+    padding: 12px 14px;
+    text-align: center;
+    border-right: 1px solid var(--line);
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+  .ms-progress .seg:last-child { border-right: none; }
+  .ms-progress .seg.peak {
+    background: var(--accent);
+    color: white;
+    font-weight: 700;
+  }
+  .ms-progress .seg .seg-date {
+    display: block;
+    font-size: 0.88rem;
+    color: var(--text);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 3px;
+    font-family: var(--sans);
+  }
+  .ms-progress .seg.peak .seg-date { color: white; }
+  .milestone-timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin: 0 0 16px;
+  }
+  .ms-card {
+    border: 1px solid var(--line);
+    background: var(--bg-page);
+    overflow: hidden;
+    position: relative;
+  }
+  .ms-card .ms-phase {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    background: var(--text);
+    color: white;
+    padding: 8px 14px;
+    text-transform: uppercase;
+  }
+  .ms-card.peak .ms-phase { background: var(--accent); }
+  .ms-card .ms-body { padding: 14px 16px 16px; }
+  .ms-card .ms-date {
+    font-size: 1.12rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 3px;
+    line-height: 1.2;
+  }
+  .ms-card.peak .ms-date { color: var(--accent); }
+  .ms-card .ms-duration {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+  .ms-card .ms-title {
+    font-size: 0.94rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+  }
+  .ms-card .ms-desc {
+    font-size: 0.82rem;
+    color: var(--text-soft);
+    line-height: 1.5;
+  }
+  .ms-card .ms-tasks {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--line-soft);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+  .ms-card .ms-tasks .tk {
+    display: block;
+    padding: 1px 0;
+  }
+  .ms-card .ms-tasks .tk::before {
+    content: "·";
+    margin-right: 5px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .ms-key {
+    background: var(--bg-soft);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    margin-top: 14px;
+  }
+  .ms-key .ms-key-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .ms-key ul {
+    padding-left: 18px;
+    margin: 0;
+    font-size: 0.86rem;
+    color: var(--text-soft);
+    line-height: 1.6;
+  }
+  .ms-key li { margin-bottom: 2px; }
+
+  @media print {
+    body { padding: 0; background: white; }
+    .page { margin: 0; max-width: none; border: none; page-break-after: always; padding: 28mm 24mm; }
+    .page:last-of-type { page-break-after: auto; }
+    @page { size: A4; margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<section class="page">
+  <span class="page-num">01 / 06</span>
+  <div class="doc-title">REPORT</div>
+  <div class="page-tag">Ⅰ. 행사 개요 및 포지셔닝 / Ⅱ. 추진 배경</div>
+  <h1>AI 고역량 인재 발굴 해커톤<br><span class="em">'NAN 2026'</span> 진행 계획</h1>
+  <p class="deck"><strong>AI 활용 능력과 게임 개발 역량을 동시 검증</strong>하여 즉시 투입 가능한 게임 개발 실전형 융합 인재 발굴 및 확보 목적</p>
+
+  <div class="section-block">
+    <div class="section-head"><span class="roman">Ⅰ.</span>행사 개요 및 포지셔닝</div>
+    <div class="field-row">
+      <div class="label">행사 목적</div>
+      <div class="value">게임 아이디어 공모가 아닌, <strong>AI 시대 즉시 투입 가능한 게임 개발 실전형 융합 인재</strong>를 발굴하여 실제 채용 파이프라인으로 연계</div>
+    </div>
+     <div class="field-row">
+      <div class="label">개최 일시</div>
+      <div class="value"><strong>2026년 9월 4일(금) ~ 6일(일)</strong> (48시간 해커톤)</div>
+    </div>
+    <div class="field-row">
+      <div class="label">개최 장소</div>
+      <div class="value"><strong>플레이뮤지엄 10층</strong></div>
+    </div>
+       <div class="field-row">
+      <div class="label">참가 자격</div>
+      <div class="value">만 <strong>19세 이상</strong> · <strong>학력·전공·직군 무관</strong> · 개인 또는 팀 단위 지원</div>
+    </div>
+ <div class="field-row">
+      <div class="label">참가 규모</div>
+      <div class="value"><strong>10팀 / 최대 30명</strong> (팀당 1~3인 구성)</div>
+    </div>
+
+  </div>
+
+  <div class="section-block">
+    <div class="section-head"><span class="roman">Ⅱ.</span>해커톤 행사 목적</div>
+    <div class="card-grid-3">
+      <div class="card">
+        <div class="order">CORE PILLAR · 01</div>
+        <h3>정예 인재 채용<br>파이프라인 형성</h3>
+        <p>실전형 과제를 통해 검증된 인력군을 확보하고, <br>행사 결과를 <span class="kw">자연스러운 채용 연계</span>로 유도. <br>게임xAI 융합형 인재의 안정적 확보 채널 구축</p>
+      </div>
+      <div class="card">
+        <div class="order">CORE PILLAR · 02</div>
+        <h3>규제 완화 대응<br>산업 인재 환원</h3>
+        <p>2026년 2월 웹보드 게임 <span class="kw">결제한도 상향</span> 조치에 대응하는 환원 프로그램으로, 국내 게임 산업 인재 양성에 기여하는 가시적 프로그램으로 포지셔닝</p>
+      </div>
+      <div class="card">
+        <div class="order">CORE PILLAR · 03</div>
+        <h3>대외 명분 선제 확보<br>및 국감 대응력 강화</h3>
+        <p>통상 10월 국정감사 이전인 <span class="kw">9월 본 행사 개최</span>를 통해, 인재 양성·산업 환원에 대한 <strong>선제적 트랙 레코드</strong>를 확보. <strong>대외 명분과 국감 대응력</strong>을 동시 강화</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page">
+  <span class="page-num">02 / 06</span>
+  <div class="doc-title">REPORT</div>
+  <div class="page-tag">Ⅲ. 보상 체계(Reward Architecture) 설계안</div>
+  <h1>대상 기준 <span class="em">1억 원</span>,<br>3개 부문 × 3단계 차등 지급</h1>
+  <p class="deck">상금 전체를 일시 현금화할 경우 발생할 수 있는 '채용 니즈 없는 인디 개발자 위주의 유입'을 방지하고,<br>입사 의향이 있는 인재에게 실질적 혜택이 돌아가도록 유인 구조 설계</p>
+
+  <div class="section-block">
+    <div class="section-head"><span class="roman">Ⅲ.</span>보상 체계 — 수상 3개 부문 차등 구조</div>
+    <table class="reward-table">
+      <thead>
+        <tr>
+          <th style="width:14%;">부문</th>
+          <th class="num" style="width:14%;">상금<br><small style="font-weight:400;color:var(--text-muted);">팀 단위</small></th>
+      <th class="num" style="width:14%;">채용혜택<br><small style="font-weight:400;color:var(--text-muted);">개인</small></th>
+
+          <th class="num" style="width:14%;">사이닝<br><small style="font-weight:400;color:var(--text-muted);">개인 · 입사 시</small></th>
+
+          <th class="num" style="width:14%;">인센티브<br><small style="font-weight:400;color:var(--text-muted);">개인 · 근속 시</small></th>
+          <th class="num" style="width:14%;">총상금</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fffaeb;">
+          <td class="stage" style="color:var(--accent);">대상 (1팀)</td>
+          <td class="amt">5,000만 원</td>
+<td class="amt">최종면접 직행</td>
+          <td class="amt">3,000만 원</td>
+          <td class="amt">2,000만 원</td>
+          <td class="amt" style="color:var(--accent);">1억 원</td>
+       
+        </tr>
+        <tr>
+          <td class="stage">최우수 (1팀)</td>
+          <td class="amt">2,000만 원</td>
+<td class="amt">최종면접 직행</td>
+          <td class="amt">2,000만 원</td>
+          <td class="amt">1,000만 원</td>
+          <td class="amt">5,000만 원</td>
+          
+        </tr>
+        <tr>
+          <td class="stage">우수 (1팀)</td>
+          <td class="amt">1,000만 원</td>
+<td class="amt">최종면접 직행</td>
+          <td class="amt">1,000만 원</td>
+          <td class="amt">1,000만 원</td>
+          <td class="amt">3,000만 원</td>
+
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>시상 합계</td>
+          <td class="amt">8,000만 원</td>
+          <td class="amt">최대 9명</td>
+          <td class="amt">6,000만 원</td>
+          <td class="amt">4,000만 원</td>
+          <td class="amt">1억 8,000만 원</td>
+        
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <div class="design-intent">
+    <h4>설계 의도 — 목적 기반 보상 구조</h4>
+    <p>상금 전체를 일시 현금으로 지급할 경우 <strong>NHN 입사 의향이 없는 인디 개발자 중심으로 풀이 형성</strong>되어 본 행사 목적인 채용·인재 확보 효과가 희석될 우려가 있어, <br> 이를 방지하기 위해 <strong>1단계 우승 보상</strong>과 <strong>2·3단계 채용 직결 보상</strong>을 분리하여, 입사 의향이 있는 인재에게 실질적 유인이 더 크도록 구조화</p>
+  </div>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page">
+  <span class="page-num">03 / 06</span>
+  <div class="doc-title">REPORT</div>
+  <div class="page-tag">Ⅳ. 선발 및 평가 프로세스</div>
+  <h1>사전 선발 <span class="em">10팀</span>, <br>현장 평가 100점 만점</h1>
+  <p class="deck">신청 단계에서부터 사전과제를 동시 제출받아 진정성 있는 지원자를 우선 선별하고, <br>본선 현장에서는 일시적 아이디어가 아닌 <strong>기술적 완성도와 위기 관리 능력</strong>을 종합 평가</p>
+
+  <div class="section-block">
+    <div class="section-head"><span class="roman">Ⅳ.</span>선발 및 평가 프로세스</div>
+
+    <div class="selection-split">
+      <div class="sel-col">
+        <div class="stage-tag">1. PRE-SELECTION · 사전 선발 단계</div>
+        <h3>신청·사전과제 동시 제출 → 심사 → 10팀 확정</h3>
+        <ul class="step-list">
+          <li>
+            <span class="stage-label">[1단계]</span>
+            <span class="step-content"><strong>신청 및 사전과제 동시 제출</strong><span class="desc">접수 단계부터 실무 과제를 부과하여 진정성 있는 지원자를 우선 선별.</span></span>
+          </li>
+          <li>
+            <span class="stage-label">[2단계]</span>
+            <span class="step-content"><strong>1차 서류·과제 심사</strong><span class="desc">AI 활용 역량, 게임 개발 이해도, 팀 구성 적합성을 종합적으로 정량·정성 평가.</span></span>
+          </li>
+          <li>
+            <span class="stage-label">[3단계]</span>
+            <span class="step-content"><strong>본선 진출 10팀 확정</strong><span class="desc">본선 진출자 전원은 당사 인재 풀(Pool)에 등록하여 지속적인 채용 트랙 관리.</span></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sel-col">
+        <div class="stage-tag">2. ON-SITE EVALUATION · 현장 평가 (100점)</div>
+        <h3>4개 평가 축 — 기술 완성도·위기 관리 능력 종합</h3>
+        <div class="submit-box">
+          <div class="title">평가 대상 · 제출물 3종</div>
+          <div class="items">
+            <div class="item"><span class="it-num">① 산출물</span><span class="it-name">게임 프로토타입</span></div>
+            <div class="item"><span class="it-num">② 산출물</span><span class="it-name">에이전트 아키텍처 문서</span></div>
+            <div class="item"><span class="it-num">③ 산출물</span><span class="it-name">디렉팅 명세서</span></div>
+          </div>
+        </div>
+        <div class="score-bar">
+          <div class="score-row">
+            <div class="score-label">AI 설계<span class="desc">AI 활용의 깊이·창의성·기술적 완성도</span></div>
+            <div class="score-bar-track"><div class="score-bar-fill" style="width:100%;"></div></div>
+            <div class="score-pts">35</div>
+          </div>
+          <div class="score-row emphasize">
+            <div class="score-label">현장 미션<span class="desc">행사 중 즉흥적으로 부여되는 돌발 과제 해결 능력</span></div>
+            <div class="score-bar-track"><div class="score-bar-fill" style="width:71.4%;"></div></div>
+            <div class="score-pts">25</div>
+          </div>
+          <div class="score-row">
+            <div class="score-label">게임 재미<span class="desc">플레이 경험·몰입도·시장 차별화 요소</span></div>
+            <div class="score-bar-track"><div class="score-bar-fill alt1" style="width:71.4%;"></div></div>
+            <div class="score-pts">25</div>
+          </div>
+          <div class="score-row">
+            <div class="score-label">완성도<span class="desc">시스템 동작 안정성·UI·시연 가능 여부</span></div>
+            <div class="score-bar-track"><div class="score-bar-fill alt2" style="width:42.9%;"></div></div>
+            <div class="score-pts">15</div>
+          </div>
+          <div class="score-total">
+            <span>TOTAL</span><span class="num">100점</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 4 — MILESTONES -->
+<section class="page">
+  <span class="page-num">04 / 06</span>
+  <div class="doc-title">REPORT</div>
+  <div class="page-tag">Ⅴ. 주요 운영 마일스톤 (8주 4단계)</div>
+  <h1>7/10 모집 시작 →<br>9/6 행사 종료, <span class="em">총 8주 4단계</span> 운영</h1>
+  <p class="deck">모집 → 사전과제 심사 → 합격자 발표 → 본 행사의 <strong>4단계 마일스톤</strong>으로 운영. <br>핵심 분기점은 <strong>8.22 합격자 발표</strong> 시점이며, 이후 본 행사까지 약 2주간 합격팀 행정·계약·시설 셋업 진행.</p>
+
+  <div class="section-block">
+    <div class="section-head"><span class="roman">Ⅴ.</span>운영 단계별 마일스톤</div>
+
+    <div class="ms-progress">
+      <div class="seg">
+        <span class="seg-date">7.10 ~ 8.10</span>
+        STAGE 1 · 모집 32일
+      </div>
+      <div class="seg">
+        <span class="seg-date">8.11 ~ 8.21</span>
+        STAGE 2 · 심사 11일
+      </div>
+      <div class="seg peak">
+        <span class="seg-date">8.22</span>
+        STAGE 3 · 발표
+      </div>
+      <div class="seg peak">
+        <span class="seg-date">9.4 ~ 9.6</span>
+        STAGE 4 · 본 행사
+      </div>
+    </div>
+
+    <div class="milestone-timeline">
+
+      <div class="ms-card">
+        <div class="ms-phase">STAGE 01 · 모집 접수</div>
+        <div class="ms-body">
+          <div class="ms-date">7.10 (금) ~ 8.10 (월)</div>
+          <div class="ms-duration">32일 / D+0 ~ D+31</div>
+          <div class="ms-title">신청 + 사전과제<br>동시 접수</div>
+          <div class="ms-desc">접수 단계부터 사전과제를 동시 제출받아 진정성 있는 지원자를 우선 선별.</div>
+          <div class="ms-tasks">
+            <span class="tk">7.10 모집 페이지 가동</span>
+            <span class="tk">보도자료·SNS 본격 홍보</span>
+            <span class="tk">대학내일 채널 홍보</span>
+            <span class="tk">FAQ·약관 외부 노출</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ms-card">
+        <div class="ms-phase">STAGE 02 · 사전 과제 심사</div>
+        <div class="ms-body">
+          <div class="ms-date">8.11 (화) ~ 8.21 (금)</div>
+          <div class="ms-duration">11일 / D+32 ~ D+42</div>
+          <div class="ms-title">기술 심사 →<br>본선 10팀 확정</div>
+          <div class="ms-desc">AI 활용 역량·게임 개발 이해도·팀 구성 적합성을 종합 평가하여 본선 진출 10팀 선별.</div>
+          <div class="ms-tasks">
+            <span class="tk">기술센터 심사위원 운영</span>
+            <span class="tk">정량·정성 평가 집계</span>
+            <span class="tk">개인정보 동의서 검토</span>
+            <span class="tk">탈락팀 인재 풀 등록</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ms-card peak">
+        <div class="ms-phase">STAGE 03 · 합격자 발표</div>
+        <div class="ms-body">
+          <div class="ms-date">8.22 (토)</div>
+          <div class="ms-duration">D+43 · 단일 시점</div>
+          <div class="ms-title">합격 연락 +<br>행정 절차 시작</div>
+          <div class="ms-desc">본선 10팀 통보 + 참가 서약·개인정보 수령. 합격팀 사전 안내·행사장 정보 송부.</div>
+          <div class="ms-tasks">
+            <span class="tk">합격자 개별 연락 시작</span>
+            <span class="tk">참가 서약·동의서 수령</span>
+            <span class="tk">키트·케이터링 발주</span>
+            <span class="tk">중계·사이니지 셋업 가동</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ms-card peak">
+        <div class="ms-phase">STAGE 04 · 본 행사</div>
+        <div class="ms-body">
+          <div class="ms-date">9.4 (금) ~ 9.6 (일)</div>
+          <div class="ms-duration">48시간 / D+56 ~ D+58</div>
+          <div class="ms-title">48시간 합숙 해커톤<br>+ 시상식</div>
+          <div class="ms-desc">플레이뮤지엄 10층. Day 2 현장 미션(15:00)이 핵심 변별 구간. Day 3 14:00 시상식 종료.</div>
+          <div class="ms-tasks">
+            <span class="tk">9.4 16:00 오프닝</span>
+            <span class="tk">9.5 15:00 현장 미션</span>
+            <span class="tk">9.6 09:00 심사 시연</span>
+            <span class="tk">9.6 14:00 시상식</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="ms-key">
+      <div class="ms-key-title">핵심 분기점 · 8.22 합격자 발표</div>
+      <ul>
+        <li><strong>발표 이전 (STAGE 1~2)</strong> — 외부 노출·홍보·심사 운영 중심. 모집 페이지·보도자료·기술 심사가 핵심 트랙</li>
+        <li><strong>발표 이후 (STAGE 3~4)</strong> — 합격 10팀 대상 행정·계약·시설 운영 중심. 동의서·키트·중계·법무 절차 집중</li>
+        <li><strong>8.22 시점에 행사장(플레이뮤지엄 10층) 배치·시설·중계 셋업 일제히 가동</strong>되어, 본 행사 직전 2주가 운영 부하 최고점</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 5 -->
+<section class="page">
+  <span class="page-num">05 / 06</span>
+  <div class="doc-title">REPORT</div>
+  <div class="page-tag">Ⅵ. 행사 당일 타임라인 (48시간)</div>
+  <h1>9.4(금) <span class="em">16:00</span> 시작 →<br>9.6(일) <span class="em">14:00</span> 시상식</h1>
+  <p class="deck"><strong>48시간 합숙 챌린지</strong>. Day 2 오후 <strong>현장 미션 투입(15:00)</strong>이 핵심 변별 구간이며, 시상식은 Day 3 14:00 종료.</p>
+
+  <div class="section-block">
+    <div class="section-head"><span class="roman">Ⅵ.</span>D-Day 시간대별 운영 흐름</div>
+
+    <div class="day-timeline">
+
+      <div class="day-col">
+        <div class="day-head">
+          <div class="day-label">DAY 1</div>
+          <div class="day-date">9.4 (금)</div>
+          <div class="day-sub">오프닝 · 개발 시작</div>
+        </div>
+        <div class="day-rows">
+          <div class="day-row highlight">
+            <div class="time">16:00</div>
+            <div class="activity">
+              <span class="act-name">오프닝<span class="badge">START</span></span>
+              <span class="act-desc">주제 발표 / 48시간 시작 선언</span>
+            </div>
+          </div>
+          <div class="day-row">
+            <div class="time">16:30</div>
+            <div class="activity">
+              <span class="act-name">팀 킥오프</span>
+              <span class="act-desc">팀 구성 확인 / 개발 방향 설정</span>
+            </div>
+          </div>
+          <div class="day-row">
+            <div class="time">17:00</div>
+            <div class="activity">
+              <span class="act-name">개발 시작</span>
+              <span class="act-desc">에이전트 설계 · 게임 프로토타입 개발</span>
+            </div>
+          </div>
+          <div class="day-row">
+            <div class="time">22:00</div>
+            <div class="activity">
+              <span class="act-name">1차 체크포인트</span>
+              <span class="act-desc">핵심 에이전트 1개 이상 작동 자체 점검</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-col peak">
+        <div class="day-head">
+          <div class="day-label">DAY 2 ★ PEAK</div>
+          <div class="day-date">9.5 (토)</div>
+          <div class="day-sub">멘토링 · 현장 미션 · 마무리</div>
+        </div>
+        <div class="day-rows">
+          <div class="day-row">
+            <div class="time">10:00</div>
+            <div class="activity">
+              <span class="act-name">멘토 라운딩</span>
+              <span class="act-desc">기술·아트 멘토 팀별 순회 피드백</span>
+            </div>
+          </div>
+          <div class="day-row">
+            <div class="time">13:00</div>
+            <div class="activity">
+              <span class="act-name">중간 점검</span>
+              <span class="act-desc">핵심 루프 작동 여부 / 미완성 팀 지원</span>
+            </div>
+          </div>
+          <div class="day-row highlight">
+            <div class="time">15:00</div>
+            <div class="activity">
+              <span class="act-name">현장 미션 투입<span class="badge">핵심 변별</span></span>
+              <span class="act-desc">10개 미션지 중 추첨 · 2시간 수행</span>
+            </div>
+          </div>
+          <div class="day-row">
+            <div class="time">17:00</div>
+            <div class="activity">
+              <span class="act-name">개발 재개</span>
+              <span class="act-desc">미션 결과 반영 + 최종 마무리</span>
+            </div>
+          </div>
+          <div class="day-row">
+            <div class="time">21:00</div>
+            <div class="activity">
+              <span class="act-name">빌드 점검</span>
+              <span class="act-desc">H5 빌드 가능 여부 사전 체크</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-col">
+        <div class="day-head">
+          <div class="day-label">DAY 3</div>
+          <div class="day-date">9.6 (일)</div>
+          <div class="day-sub">제출 · 심사 · 시상</div>
+        </div>
+        <div class="day-rows">
+          <div class="day-row">
+            <div class="time">08:00</div>
+            <div class="activity">
+              <span class="act-name">최종 제출 마감</span>
+              <span class="act-desc">빌드 + 설계 명세서 + AI 호출 로그</span>
+            </div>
+          </div>
+          <div class="day-row">
+            <div class="time">09:00</div>
+            <div class="activity">
+              <span class="act-name">심사 시연</span>
+              <span class="act-desc">팀당 20분 (발표 10 + 시연 5 + Q&A 5)</span>
+            </div>
+          </div>
+          <div class="day-row">
+            <div class="time">12:00</div>
+            <div class="activity">
+              <span class="act-name">심사 종료</span>
+              <span class="act-desc">심사위원 평가 집계 · 최종 순위 확정</span>
+            </div>
+          </div>
+          <div class="day-row highlight">
+            <div class="time">14:00</div>
+            <div class="activity">
+              <span class="act-name">시상식<span class="badge">FINISH</span></span>
+              <span class="act-desc">수상자 발표 · 채용 연계 안내 · 2회차 티저</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="timeline-summary">
+      <div class="item">
+        <div class="lbl">총 운영 시간</div>
+        <div class="val"><strong>48시간</strong> 합숙</div>
+      </div>
+      <div class="item">
+        <div class="lbl">핵심 변별 구간</div>
+        <div class="val">Day 2 <strong>15:00 ~ 17:00</strong> 현장 미션</div>
+      </div>
+      <div class="item">
+        <div class="lbl">심사 방식</div>
+        <div class="val">팀당 <strong>20분</strong> · 심사위원 직접 플레이</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 6 -->
+<section class="page">
+  <span class="page-num">06 / 06</span>
+  <div class="doc-title">REPORT</div>
+  <div class="page-tag">Ⅶ. 14개 조직 업무 투입</div>
+  <h1>전사 <span class="em">14개 조직</span> 협업,<br>마일스톤별 분담 운영</h1>
+  <p class="deck">행사 준비~후속 관리 전 구간에 걸쳐 <strong>Core 5 · Comms 4 · Support 5</strong> 조직이 마일스톤별로 투입<br>핵심 일자(<strong>7.10 모집 / 8.10 마감 / 8.22 합격 / 9.4~6 본 행사</strong>) 기준 분담 명확화</p>
+
+  <div class="org-stats">
+    <div class="org-stat">
+      <div class="stat-num">16</div>
+      <div class="stat-lbl">총 운영 조직</div>
+    </div>
+    <div class="org-stat">
+      <div class="stat-num">5</div>
+      <div class="stat-lbl">Core · 기획·운영·심사 주관</div>
+    </div>
+    <div class="org-stat">
+      <div class="stat-num">4</div>
+      <div class="stat-lbl">Comms · 브랜드·홍보·중계</div>
+    </div>
+    <div class="org-stat">
+      <div class="stat-num">7</div>
+      <div class="stat-lbl">Support · 법무·보안·시설</div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-head"><span class="roman">Ⅶ.</span>조직별 마일스톤 투입 매트릭스</div>
+
+    <div class="org-group core">
+      <div class="org-group-head">
+        <span class="cat-tag">CORE</span>
+        <span class="cat-name">기획·운영·심사 주관 조직</span>
+        <span class="cat-count">5개 조직</span>
+      </div>
+      <table class="org-table">
+        <thead>
+          <tr>
+            <th>조직</th>
+            <th>역할</th>
+            <th>마일스톤 투입 (●=주관 / ◐=참여)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="org-name">전략실 업사이즈팀</td>
+            <td class="org-role">행사 기획·운영 총괄</td>
+            <td class="org-milestones">
+              <div class="ms-dots">
+                <span class="ms-dot lead">6월</span>
+                <span class="ms-dot active">7.10</span>
+                <span class="ms-dot active">모집기</span>
+                <span class="ms-dot active">8.10</span>
+                <span class="ms-dot active">심사</span>
+                <span class="ms-dot lead peak">8.22 합격</span>
+                <span class="ms-dot lead peak">9.4~6 본행사</span>
+                <span class="ms-dot lead">10월 후속</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="org-name">개발 조직 (AI 협의회)</td>
+            <td class="org-role">기술 심사 · 현장 미션 설계</td>
+            <td class="org-milestones">
+              <div class="ms-dots">
+                <span class="ms-dot lead">6~7월 기준 수립</span>
+                <span class="ms-dot lead peak">8.10~22 심사</span>
+                <span class="ms-dot lead">미션 봉투</span>
+                <span class="ms-dot lead peak">9.4~6 본행사</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="org-name">사업실</td>
+            <td class="org-role">웹 구축 · 현장 운영</td>
+            <td class="org-milestones">
+              <div class="ms-dots">
+                <span class="ms-dot lead">6~7월 웹</span>
+                <span class="ms-dot lead peak">7.10 오픈</span>
+                <span class="ms-dot active">모집 운영</span>
+                <span class="ms-dot lead peak">8.10 마감</span>
+                <span class="ms-dot lead">8.22 합격 안내</span>
+                <span class="ms-dot lead peak">9.4~6 현장</span>
+                <span class="ms-dot active">결과 정산</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="org-name">인사실</td>
+            <td class="org-role">채용 전형 연계</td>
+            <td class="org-milestones">
+              <div class="ms-dots">
+                <span class="ms-dot active">8.10 동의서</span>
+                <span class="ms-dot active">8.22 동의 수령</span>
+                <span class="ms-dot active">9.6 채용 안내</span>
+                <span class="ms-dot lead">10월 채용 진행</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="org-name">아트 조직</td>
+            <td class="org-role">AI 아트 역량 심사</td>
+            <td class="org-milestones">
+              <div class="ms-dots">
+                <span class="ms-dot lead">6월 가이드</span>
+                <span class="ms-dot lead peak">8.10~22 심사</span>
+                <span class="ms-dot active">9.5 멘토 라운딩</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="org-group comms">
+      <div class="org-group-head">
+        <span class="cat-tag">COMMS</span>
+        <span class="cat-name">브랜드·홍보·중계 조직</span>
+        <span class="cat-count">4개 조직</span>
+      </div>
+      <table class="org-table">
+        <tbody>
+          <tr>
+            <td class="org-name">홍보실</td>
+            <td class="org-role">대외 브랜딩 · 성과 확산</td>
+            <td class="org-milestones">
+              <div class="ms-dots">
+                <span class="ms-dot lead peak">7.10 보도자료</span>
+                <span class="ms-dot active">7~8월 추가 홍보</span>
+                <span class="ms-dot lead">10월 영상·인터뷰</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="org-name">디자인실</td>
+            <td class="org-role">브랜드 비주얼 관리</td>
+            <td class="org-milestones">
+              <div class="ms-dots">
+                <span class="ms-dot lead">6월 브랜드 가이드</span>
+                <span class="ms-dot lead peak">7.10 홍보 소재</span>
+                <span class="ms-dot lead">8.22 현장 사이니지</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="org-name">게미커팀</td>
+            <td class="org-role">사내 시너지 · 실시간 중계</td>
+            <td class="org-milestones">
+              <div class="ms-dots">
+                <span class="ms-dot active">8.22 중계 셋업</span>
+                <span class="ms-dot active peak">9.4~6 중계 전 구간</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="org-name">대행사 (대학내일)</td>
+            <td class="org-role">현장 실행 · 홍보 마케팅</td>
+            <td class="org-milestones">
+              <div class="ms-dots">
+                <span class="ms-dot active">6월 계약</span>
+                <span class="ms-dot active">7~8월 채널 홍보</span>
+                <span class="ms-dot active">8.22 케이터링·키트</span>
+                <span class="ms-dot lead peak">9.4~6 현장 안전관리</span>
+                <span class="ms-dot active">10월 결과 보고</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="org-group support">
+      <div class="org-group-head">
+        <span class="cat-tag">SUPPORT</span>
+        <span class="cat-name">법무·보안·시설 지원 조직</span>
+        <span class="cat-count">5개 조직</span>
+      </div>
+      <table class="org-table">
+        <tbody>
+          <tr>
+            <td class="org-name">정책실</td>
+            <td class="org-role">대외 협력 · 문체부 후원</td>
+            <td class="org-milestones">
+              <div class="ms-dots">
+                <span class="ms-dot active">6월 협의</span>
+                <span class="ms-dot active">7.1주 후원 확정</span>
+                <span class="ms-dot active">8.22 노출 기준</span>
+                <span class="ms-dot lead">10월 결과 보고서</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="org-name">법무팀</td>
+            <td class="org-role">운영 규정 · 계약 검토</td>
+            <td class="org-milestones">
+              <div class="ms-dots">
+                <span class="ms-dot active">6월 약관 검토</span>
+                <span class="ms-dot lead peak">7.10 약관 게시</span>
+                <span class="ms-dot active">8.22 동의서 검토</span>
+                <span class="ms-dot active">10월 채용 계약</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="org-name">총무 / 사옥관리</td>
+            <td class="org-role">공간 · 시설 운영</td>
+            <td class="org-milestones">
+              <div class="ms-dots">
+                <span class="ms-dot lead">6월 공간 예약</span>
+                <span class="ms-dot lead peak">8.22 공간 배치</span>
+                <span class="ms-dot active">9.4~6 시설 대응</span>
+                <span class="ms-dot active">9.7 공간 복구</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="org-name">정보보호 / 보안</td>
+            <td class="org-role">개인정보 · 네트워크 보안</td>
+            <td class="org-milestones">
+              <div class="ms-dots">
+                <span class="ms-dot lead">6월 보안 기준</span>
+                <span class="ms-dot lead peak">7.10 시스템 점검</span>
+                <span class="ms-dot active">7~8월 데이터 감독</span>
+                <span class="ms-dot active">9.4~6 네트워크 운영</span>
+                <span class="ms-dot active">10월 정보 파기</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="org-name">웹개발</td>
+            <td class="org-role">해커톤 웹 시스템 개발</td>
+            <td class="org-milestones">
+              <div class="ms-dots">
+                <span class="ms-dot lead">6~7월 시스템 구축</span>
+                <span class="ms-dot lead peak">7.10 가동</span>
+                <span class="ms-dot active">8.22 대시보드</span>
+                <span class="ms-dot active">9.4~6 장애 대응</span>
+                <span class="ms-dot active">10월 아카이빙</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer>NAN 2026 진행 계획 · CONFIDENTIAL</footer>
+
+</body>
+</html>
